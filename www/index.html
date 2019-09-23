@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Calculator Homework</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="js/jquery.mobile-1.4.5.css">
+<script src="js/jquery.js"></script>
+<script src="js/jquery.mobile-1.4.5.js"></script> 
+<script src="cordova.js"></script>
+<script> 
+  $(document).on("pagecreate","#pageresult",function(){
+	 var fn = parseInt(document.querySelector('#fnum').value);
+	 var sn = parseInt(document.querySelector('#snum').value);
+	 var ope =document.querySelector('#sym').value;
+		if(ope ==='plus'){
+			document.querySelector('#opera').value = fn+" + "+sn;
+		    document.querySelector('#result').value = fn + sn;
+		}else
+		if(ope ==='minus'){
+			document.querySelector('#opera').value = fn+" - "+sn;
+			document.querySelector('#result').value = fn - sn;
+		}else
+		if(ope ==='mult'){
+			document.querySelector('#opera').value = fn+" x "+sn;
+			document.querySelector('#result').value = fn * sn;
+		}else
+		if(ope ==='divi'){
+			document.querySelector('#opera').value = fn+" / "+sn;
+			document.querySelector('#result').value = fn / sn;
+		}
+});
+</script>
+<style>
+.ui-btn-active.ui-state-persist{
+	background-color:#0d7aa6b5!important;
+}
+.ui-content{
+	background-color:#9be9e9;
+}
+</style>
+</head>
+<body>
+<!--firstpage-->
+ <div data-role="page" id="pageone" data-theme="a">
+  <div data-role="header"> 
+   <h1>Calculator</h1> 
+    <div data-role="navbar">
+     <ul>
+        <li><a href="#pageone"data-theme="a"
+         class="ui-btn-active ui-state-persist"
+         data-transition="slide" data-icon="home">Home</a></li>
+        <li><a href="#pagetwo" data-transition="slide" data-icon="grid">Calculator</a></li>
+        <li><a href="#pagethree" data-transition="slide"  data-icon="info">Help</a></li>
+     </ul> 
+   </div>
+  </div>
+<div data-role="main" class="ui-content"> 
+  <p>This is a simple calculator app for basic mathematical operations designed for mobile</p> 
+</div>
+<div data-role="footer"> 
+  <h1>Trilochnah kissoon</h1>
+</div> 
+</div> 
+<!---secondpage-calculator-->
+<div data-role="page" id="pagetwo" data-theme="a">
+  <div data-role="header"> 
+   <h1>Calculator</h1> 
+    <div data-role="navbar">
+     <ul>
+      <li><a href="#pageone" data-transition="slide" data-icon="home">Home</a></li>
+      <li><a href="#pagetwo" data-transition="slide"
+       class="ui-btn-active ui-state-persist" data-icon="grid">Calculator</a></li>
+      <li><a href="#pagethree" data-transition="slide" data-icon="info">Help</a></li>
+     </ul> 
+    </div>
+  </div>
+<div data-role="main" class="ui-content"> 
+  <form method="post" onload="">
+   <input type="number" name="fnum" id="fnum" placeholder="First Number">
+    <fieldset class="ui-field-contain">
+		<select name="symbol" id="sym"> 
+			<option value="plus" id="plu">+</option> 
+			<option value="minus" id="minu">-</option> 
+			<option value="mult" id="mul">x</option>
+			<option value="divi" id="div">/</option>
+		</select> 
+    </fieldset> 
+	<input type="number" name="snum" id="snum" placeholder="Second Number">
+	    <a href="#pageresult" data-transition="slide" class="ui-btn calcbtn">calculate</a>
+  </form>
+</div>
+<div data-role="footer"> 
+  <h1>Trilochnah kissoon</h1> 
+</div> 
+</div>
+<!--resultpage-->
+<div data-role="page" data-dialog="true" id="pageresult" data-theme="a">
+ <div data-role="header"> 
+  <h1>Result</h1> 
+   <div data-role="navbar">
+    <ul>
+     <li><a href="#pageone" data-transition="slide" data-icon="home">Home</a></li>
+     <li><a href="#pagetwo" data-transition="slide" data-icon="grid">Calculator</a></li>
+     <li><a href="#pagethree" data-transition="slide" data-icon="info">Help</a></li>
+    </ul> 
+   </div>
+ </div>
+<div data-role="main" class="ui-content"> 
+  <p>Operation:</p>
+  <input type="text" name="op" id="opera">
+  <p>Result:</p>
+  <input type="text" name="res" id="result" placeholder="Result">
+</div>
+  <a href="#pagetwo"data-transition="slide"class="ui-btn ui-icon-back ui-btn-icon-left">Back</a>
+<div data-role="footer"> 
+<h1>Trilochnah kissoon</h1> 
+</div> 
+</div> 
+<!---thirdpage-help-->
+<div data-role="page" id="pagethree" data-theme="a">
+ <div data-role="header">
+  <h1>Help</h1>
+ </div> 
+<div data-role="main" class="ui-content">
+  <div data-role="navbar">
+	<ul>
+	 <li><a href="#pageone"data-transition="slide" data-icon="home">Home</a></li>
+	 <li><a href="#pagetwo"data-transition="slide" data-icon="grid">Calculator</a></li>
+	 <li><a href="#pagethree" data-transition="slide"
+	  class="ui-btn-active ui-state-persist" data-icon="info">Help</a></li>
+    </ul>
+  </div>
+	<p>You have requested more information about the App!</p>
+	<a href="#pagefour" data-transition="slide"
+	 class="ui-btn ui-icon-info ui-btn-icon-left">more info</a>
+</div>
+<div data-role="footer">
+  <h2>Trilochnah kissoon</h2>
+</div> 
+</div>
+<!--more information-->
+<div data-role="page" id="pagefour" data-dialog="true" data-theme="a">
+  <div data-role="header">
+   <h1>More information</h1>
+</div>		
+<div data-role="main" class="ui-content">
+  <div data-role="navbar">
+	<ul>
+	 <li><a href="#pageone" data-transition="flip" data-icon="home">Home</a></li>
+	 <li><a href="#pagetwo" data-transition="flip" data-icon="grid">Calculator</a></li>
+	 <li><a href="#pagethree" data-transition="flip"  data-icon="info">Help</a></li>
+	</ul>
+   </div>
+<div data-role="main" class="ui-content">
+  <p>You have requested more information about the app!</p>
+  <a href="#pageone"  data-rel="back"
+    data-transition="slide" class="ui-btn ui-icon-back ui-btn-icon-left">Dismiss</a>
+</div>	
+</div>
+</div>
+</body>
+</html>
